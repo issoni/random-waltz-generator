@@ -87,12 +87,26 @@ def roll_dice(num = 1):
 # simpleaudio's interface. Make sure you wait for each measure to finish before
 # playing the next measure.
 def construct_waltz():
+    list = []
+    for column in minuet_table:
+        randomAudio = minuet_table[roll_dice(2)]
+        list.append(randomAudio)
+
+    list2 = []
+    for column in trio_table:
+        randomAudio2 = trio_table[roll_dice(1)]
+        list2.append(randomAudio2)
+
+    for selection in list:
+        minuet_filename(list[selection])
+
+    return list2 
 
 
- 
 
 if __name__ == "__main__":
-    construct_waltz()
+    test1 = construct_waltz()
+    print("walt is:", test1)
     
 
 
