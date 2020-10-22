@@ -1,5 +1,9 @@
+# NAME Ishika Soni
+# DATE 10/4/20
+# musical_dice_game.py
+
 import random
-#import simpleaudio
+import simpleaudio
 
 # Each of these lists corresponds to one column of the table used for the minuet
 # portion Mozart's Musical Dice Game. The first two elements are set to None
@@ -87,26 +91,33 @@ def roll_dice(num = 1):
 # simpleaudio's interface. Make sure you wait for each measure to finish before
 # playing the next measure.
 def construct_waltz():
-    list = []
+    list1 = []
     for column in minuet_table:
-        randomAudio = minuet_table[roll_dice(2)]
-        list.append(randomAudio)
+        randomAudio = column[roll_dice(2)]
+        list1.append(randomAudio)
 
     list2 = []
     for column in trio_table:
-        randomAudio2 = trio_table[roll_dice(1)]
+        randomAudio2 = column[roll_dice(1)]
         list2.append(randomAudio2)
 
-    for selection in list:
-        minuet_filename(list[selection])
+    
+    newList = []
+    for i in list1:
+        name = minuet_filename(i)
+        newList.append(simpleaudio.WaveObject.from_wave_file(name))
 
-    return list2 
+    for i in list2:
+        name = trio_filename(i)
+        newList.append(simpleaudio.WaveObject.from_wave_file(name))
+
+    for i in newList:
+        player = i.play()
+        player.wait_done()
 
 
 
 if __name__ == "__main__":
-    test1 = construct_waltz()
-    print("walt is:", test1)
+    construct_waltz()
     
-
-
+    
