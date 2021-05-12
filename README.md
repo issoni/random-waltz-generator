@@ -1,5 +1,4 @@
 # random-waltz-generator
-Project for IAE 101 
 
 In 1787, Wolfgang Amadeus Mozart created a dice game (Mozart's Musikalisches Würfelspiel). In the game, you compose a two-part waltz by pasting together 32 of 272 pre-composed musical elements at random.
 
